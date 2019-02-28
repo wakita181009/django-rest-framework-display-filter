@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = ">=2.1.6"
+djangorestframework = ">=3.0.0"
+
+[dev-packages]
+flake8 = "*"
+isort = "*"
+mypy = "*"
+coverage = "*"
+
+[scripts]
+lint = "flake8 ./rest_framework_display_filter"
+mypy = "mypy ./rest_framework_display_filter --config-file=.mypy.ini"
+isort = "isort -rc ./rest_framework_display_filter -w 79"
