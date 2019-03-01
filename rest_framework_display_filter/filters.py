@@ -147,9 +147,9 @@ class DisplayFieldFilter(BaseFilterBackend):
 
             if isinstance(field, serializers.ModelSerializer):
                 if direct:
-                    relations.append(field_name)
+                    relations.append(field.source)
                 else:
-                    reverse_relations.append(field_name)
+                    reverse_relations.append(field.source)
         return relations, reverse_relations
 
     @staticmethod
