@@ -18,13 +18,6 @@ class DisplayFieldFilter(BaseFilterBackend):
         fields = self.get_display(request, queryset, view)
         relations, reverse_relations = self._extract_relations(
             fields, view, {"request": request})
-        only_fields = fields and [
-            field for field in fields
-            if not reverse_relations or field not in reverse_relations
-        ]
-
-        if only_fields:
-            queryset = queryset.only(*only_fields)
         if relations:
             queryset = queryset.select_related(*relations)
         if reverse_relations:
